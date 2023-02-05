@@ -1,0 +1,349 @@
+LINGUAGEM R
+
+Link do Combo – Módulos I e II com R: https://didatica.tech/combo-modulos-i-e-ii-com-r/
+​Para utilizar o desconto, após clicar no botão de pagamento do curso, clique na opção "Possui um cupom de desconto?", e coloque o código DT150CR que o desconto será aplicado.
+
+#Contato coma linguagem R e RStudio
+
+# Comentários em R
+
+#Para executar clique sobre a linha ou selecione o conjunto de linhas e pressione CONTROL + ENTER
+
+#CONTROL + L limpa a console
+
+#Criando Variaveis
+
+a <- 10
+a
+
+b
+b = 10
+b
+
+# Linguagem R é case sensitive
+B
+
+#Utilize <- na criação de variaveis e = nas atribuições de funcções
+
+c -> 10 # instancia incorreta - vai dar erro!!!
+10 -> c
+c -> d
+
+#Para padronizar, utilize "variavel" <- "valor'
+
+a <- 10
+b <- 5
+
+c <- a + b
+
+a <- "Heitor"
+b <- "Joao"
+
+c <- a + b
+
+#Funções
+#Fazem parte de um pacote.
+#Pacotes contem muitas funções e precisam estar instalados.
+#Não sendo um pacote padrão ele precisa ser chamado.
+
+# c não é uma variável e sim uma função
+# Para descobrir o que uma função faz, basta colocar um ? na frente que abrirá a explicação
+c <- c(a,b)
+
+#Help
+?c
+
+c <- c("Heitor", "Joao")
+c
+
+a <- c(10,5,15,20)
+a[1]
+mostra apenas o numero 10 
+
+?summary
+
+#O console mostra (min, 1st Quartil, Mediana, Mean, 3 Quartil, Max)
+#Somente para numeros
+sumary(a)
+
+#Não funciona com caracteres
+sumary(c)
+
+#Função de um pacote não padrão
+?str_c
+
+#Instalando um pacote
+#https://www.rdocumentation.org/
+#Descubra o nome do pacote e execute o comando abaixo
+
+install.packages("stringr")
+
+library(stringr)
+
+?str_c
+
+Nome <- "Joao"
+Sobrenome <- "Silva"
+
+NomeCompleto <- str_c(Nome, Sobrenome)
+NomeCompleto
+
+NomeCompleto <- str_c(Nome, " ", Sobrenome)
+NomeCompleto
+
+# Objetivo realizar operacoes matematicas, logicas e de comparacao
+
+# Como?
+#Utilizando recursos basicos
+
+# Soma
+5 + 5
+
+# Subtracao
+10 - 8
+
+# Divisao
+9 / 3
+
+# Multiplicacao
+4 * 2
+
+# Potencia
+4 ** 2
+4 ^ 2
+
+# Igual?
+5 == 6
+5 == 5
+
+# Diferente
+5 != 6
+5 != 5
+
+# Maior
+4 > 2
+4 > 6
+
+# Menor
+3 < 2
+3 < 4
+
+# Maior igual
+4 >= 5
+4 >= 4
+
+# Menor ou igual
+6 <= 8
+6 <= 5
+
+# E
+6 == 6
+6 == 6 & 7 == 8
+6 == 6 & 7!= 8
+5 > 3 & 5 < 8
+
+# OU
+6 == 6
+7 == 8
+6 == 6 | 7 == 8
+6 != 6 | 7 == 8
+5 > 3 | 5 < 8
+
+# Negacao
+!6 == 6
+!4 > 2
+
+# Objetivo: entender como a linguagem R organiza dados
+# Como?
+# Exemplos
+
+#Armazenamento numerico
+
+Salario <- 3450.89
+Horas <- 220
+
+SH <- Salario/Horas
+
+#Quero o valor em inteiro
+#Chama a funcao as.integer
+SHi <- as.integer(Salario/Horas)
+
+SHi * 5
+
+#Funcao para arredondar o valor
+SHr <- round(Salario/Horas)
+
+Numeros1 <- Salario + Horas
+Numeros1
+Numero2 <- c(Salario,Horas)
+Numero2
+
+# Armazenamento de caracteres
+
+Nome_1 <- "Eduardo Abreu"
+Nome_2 <- "Amanda Lopes"
+Idade <- 25
+
+Nomes <- Nome_1 + Nome_2
+
+#Utilizar a funcao c para guardar os dois nomes na mesma variavel
+Nomes <- c(Nome_1, Nome_2)
+
+Nomes
+Nomes[1]
+Nomes[2]
+
+Nome_1 == Nome_2
+
+#armazenamento de fatores
+#Tipo inteiro
+
+CargaHoraria <- c(220,220,150,100,100)
+summary(CargaHoraria)
+
+#Criar fatores / categorias
+# Quantas vezes repete o valor
+CargaHoraria <- as.factor(CargaHoraria)
+summary(CargaHoraria)
+
+CargaHoraria <- as.factor(c(220,220,150,100,100))
+summary(CargaHoraria)
+mode(CargaHoraria)
+class(CargaHoraria)
+
+#Armazenamento lógico
+
+L1 <- Salario > Horas
+L1
+
+L2 <- Salario < Horas
+L2
+
+Logico <- TRUE
+Logico1 <- "TRUE"
+Logico <- c(1, TRUE, 3)
+
+#Vetores - Estruturas básicas de dados
+#Todos as variaveis criadas até agora são vetores
+
+#Vetores de caracteres
+is.vector(Nomes)
+mode(Nomes)
+
+#Vetor numerico
+is.vector(Horas)
+mode(Horas)
+
+#Vetor logico
+is.vector(L1)
+mode(L1)
+
+#Lista - vetor com tipo de dados diferentes
+a <- c(1, 2, 3, 4, 5)
+
+
+# Foi criado um vector totalmente caracter por causa "2"
+b <- c(1, "2", 3, 4, 5)
+
+# Transformar um vector caracter em numerico
+b <- as.numeric(b)
+
+a
+b
+
+
+is.list(a)
+is.vector(b)
+
+b <- list(10, "2", 8)
+is.list(b)
+mode(b)
+str(b)
+
+e <- list(c(10,6,51,5),"2", 8)
+str(e)
+e[[1]][1]
+
+# Matrizes - Duas dimensões um tipo de dado
+# Não será permitido dois tipos de dados
+
+m <- matrix(1:9, nrow = 3)
+m
+mode(m)
+class(m)
+
+# m[linha, coluna]
+
+m[1,3]
+m[1,3] <- "a"
+
+mode(m)
+m
+class(m)
+
+# Objetivo: trabalhar com bases de dados
+# Como?
+# utilizando data frames
+
+#Definir area de trabalho
+# Não esqueça de inverter as barras: C:\Users\alanjoffre\Desktop\TI\Cursos\R
+setwd("C:/Users/alanjoffre/Desktop/TI/Cursos/R")
+
+#Instalar o pacote readxl
+install.packages("readxl")
+library(readxl)
+
+#Importando base de dados
+df = read_excel(path="DataFrame.xlsx")
+
+
+#analisando um dta frame
+view(df)
+
+#Tipos de dados
+str(df)
+summary(df)
+
+#Selecionando variaveis
+df
+df[1]
+df$DIA_SEM
+
+Col1 <- df[1]
+Col2 <- df$DIA_SEM
+
+class(df$DIA_SEM)
+class(col2)
+class(col1)
+
+#Modificando o DF
+#Excluindo variavel
+df$ONIBUS <- NULL
+
+#Alterando o tipo da varivel dentro do df
+df$UPS
+summary(df$UPS)
+
+#Transformar a coluna em factor (contador de vexes que aparece - NIVEIS)
+df$UPS <- as.factor(df$UPS)
+df$UPS
+summary(df$UPS)
+
+#Criando uma nova variavel dentro do df
+df$Nova <- "a"
+class(df$Nova)
+df$NOva <- c(2,5,10)
+df$Nova <- c(2,5,10,NA, NA, NA, NA, NA, NA)
+
+#Criar uma coluna totalmente vazia
+df$Nova <- NULL
+df$Nova <- NA
+
+#Informar somente as linhas que terão informações
+df$Nova[1:3] <- c(2,5,10)
+class(df$Nova)
+
+  
+
+
+
