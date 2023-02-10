@@ -1,2 +1,2 @@
 # linguagem-r
-Repositório com aprendizado e exercícios: R
+- Repositório com: artigos, aprendizados, exercícios e projetos.
